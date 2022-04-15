@@ -2,3 +2,75 @@ body
 {
     text-align: center;
 }
+
+div
+{
+    place-items: center;
+    align-items: center;  
+}
+
+button
+{
+    background: #f4f4fc;  
+    align-items: center;           
+    border-radius: 20px;
+    border: 1px;
+    font-size: 17px;
+    color: #325889;
+    cursor: pointer;
+    font-weight: 540;
+    margin-top: 15px;
+    margin-right: 10px;    
+    width: 120px;
+    box-shadow: 0px 0px 5px #666666;
+}
+
+button:hover
+{
+    background: #2c2c2c;
+    box-shadow: 0px 0px 12px 1px #666666;
+}
+
+textarea
+{
+    width: 100%;
+    height: 100%;
+    max-width: 300px;
+    max-height: 90px;
+    border-radius: 0px;
+    text-align: left;
+    font-size: 17px;
+    background-color:#f4f4fc;  
+    color: #325889;
+    margin: auto;
+    margin-top: 2px;
+    padding: 12px;
+    transition: .3 ease all;
+    border: 2px solid transparent;
+    resize: none;
+    caret-color: #325889;
+}
+
+textarea:focus
+{
+    outline: unset;
+    border: 2px solid black;
+    transition-duration: 1s;       
+}
+
+textarea::placeholder
+{
+    color: #325889;  
+}
+
+h1
+{
+    margin: auto;
+    text-align: center;
+}
+
+hr
+{
+    margin-bottom: 15px;
+    width: 400px;
+}
