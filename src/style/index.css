@@ -22,13 +22,13 @@ button
     margin-top: 15px;
     margin-right: 10px;    
     width: 120px;
-    box-shadow: 0px 0px 5px #666666;
+    box-shadow: 0px 0px 1px #666666;
 }
 
 button:hover
 {
-    background: #2c2c2c;
-    box-shadow: 0px 0px 12px 1px #666666;
+    background: #f6f6fc;
+    box-shadow: 0px 0px 1px 1px #666666;
 }
 
 textarea
