@@ -22,13 +22,12 @@ button
     margin-top: 15px;
     margin-right: 10px;    
     width: 120px;
-    box-shadow: 0px 0px 1px #666666;
+    box-shadow: 0px 0px 1px 1px #666666;
 }
 
 button:hover
 {
-    background: #f6f6fc;
-    box-shadow: 0px 0px 1px 1px #666666;
+    background: #ebebf3;
 }
 
 textarea
@@ -67,10 +66,27 @@ h1
 {
     margin: auto;
     text-align: center;
+    color: #3a3a3a;
 }
 
 hr
 {
     margin-bottom: 15px;
     width: 400px;
+}
+
+footer
+{
+    background-color: #f4f4fc; 
+    position: fixed;
+    padding: 0px;
+    bottom: 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.result
+{
+    margin: auto;
+    margin-top: 50px;   
 }
