@@ -17,19 +17,21 @@
         </header>
 
         <div>
-            <textarea name='' id='' cols='30' rows='5' maxlength=100 placeholder='Enter text here'></textarea>
+            <textarea class='textarea-encrypter' name='' id='' cols='30' rows='5' maxlength=100 placeholder='Enter text here' spellcheck='false'></textarea>
             <br>
-            <button id='encrypt'>Encrypt</button> <button id='decrypt'>Decrypt</button>            
+            <button id='btn-encrypt'>Encrypt</button> <button id='btn-decrypt'>Decrypt</button>            
         </div>
 
         <div>
-            <textarea class='result' name='' id='' cols='30' rows='5' maxlength=100 placeholder='Result' disabled='true'></textarea>
+            <textarea class='textarea-result' name='' id='' cols='30' rows='5' maxlength=100 placeholder='Result' disabled='true' spellcheck='false'></textarea>
             <br>  
             <button>Copy</button>
-        </div>              
+        </div>
+        
+        <p id="txt">HOLA</p> <!-- for tests -->
 
         <footer>
-            <h3>Delbelt &copy - Challenge Oracle ne Alura</h3>
+            <h3>Delbelt &copy - Challenge Oracle one Alura</h3>
         </footer>       
         
         <script src='../src/index.js' type='module'></script>
