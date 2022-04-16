@@ -1,11 +1,9 @@
-const getValueById = (id) => document.getElementById(id).innerHTML;
+const getValueByRef = (ref) => document.querySelector(ref);
 
-const setValueById = (id, setter) => document.getElementById(id).innerHTML=setter;
+const setValueByRef = (ref, setter) => getValueByRef(ref).textContent=setter;
 
-const getValueByClass = (className) => document.querySelector(className);
+const showConsole = (data, ...params) => console.log(data, ...params);
 
-const setValueByClass = (className, setter) => className.textContent=setter;
+const addEvent = (ref, func, event) => getValueByRef(ref).addEventListener(event, func);
 
-const showConsole = (data) => console.log(data);
-
-export {getValueById, getValueByClass, setValueById, setValueByClass, showConsole};
+export { getValueByRef, setValueByRef, showConsole, addEvent };
