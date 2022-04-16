@@ -1,10 +1,12 @@
-import { addEvent, getValueByRef, setValueByRef, showConsole } from './helpers/functions.js';
+import { addEvent, getInputValue, getValueByRef, setValueByRef, showConsole } from './helpers/functions.js';
+
+getInputValue(".textarea-encrypter", "#txt");
 
 // test implementation: functions library
 setValueByRef('.title_page', 'Delbelt - Encrypter');
 showConsole(getValueByRef('.title_page').textContent);
 
-setValueByRef('#txt', '123'); // test setValue
+setValueByRef('#txt', '0'); // test setValue
 
 //var input = getValueByRef('.textarea-encrypter').value;
 //showConsole(input);
@@ -12,8 +14,10 @@ setValueByRef('#txt', '123'); // test setValue
 addEvent('#btn-encrypt', encrypt, 'click');
 addEvent('#btn-decrypt', decrypt, 'click');
 
-function encrypt()
+function encrypt(event)
 {
+    event.preventDefault()
+
     if(getValueByRef('.textarea-encrypter').value.length < 1)
     {
         showConsole('Did not receive any message');
@@ -27,8 +31,10 @@ function encrypt()
     }
 }
 
-function decrypt()
+function decrypt(event)
 {
+    event.preventDefault()
+
     if(getValueByRef('.textarea-encrypter').value.length < 1)
     {
         showConsole('Did not receive any message');        
