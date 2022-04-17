@@ -6,8 +6,3 @@ controller(); // implement complete logic of the program
 // test implementation: functions library
 setValueByRef('.title_page', 'Delbelt - Encrypter');
 showConsole(getValueByRef('.title_page').textContent);
-
-setValueByRef('#txt', '0'); // test setValue
-
-//var input = getValueByRef('.textarea-encrypter').value;
-//showConsole(input);
