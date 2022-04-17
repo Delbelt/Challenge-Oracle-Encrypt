@@ -1,4 +1,4 @@
-import { addEvent, getValueByRef, setValueByRef, showConsole } from "./functions.js";
+import { addEvent, getValueByRef, setValueByRef, showConsole } from './functions.js';
 
 const buttonEncrypterDisabled = () =>
 {
@@ -30,7 +30,7 @@ const controller = () =>
     {
         //setValueByRef('#txt', event.path[0].value.length)
         buttonEncrypterDisabled();
-        //barProgress(".bar-progress", event.path[0].value.length) 
+        //barProgress('.bar-progress', event.path[0].value.length) 
     })       
 }
 
@@ -45,27 +45,55 @@ function encrypt(event)
 
     else
     {
-        showConsole('encrypted');
+        showConsole('encrypted!');
 
         const message = getValueByRef('.textarea-encrypter').value;
 
-        var prueba = "";
+        var prueba = '';
 
         for(var i = 0; i < message.length; i++)
         {
             switch(message[i])
             {
-                case 'a' : prueba += message[i].replace("a", "ai"); break;
-                case 'e' : prueba += message[i].replace("e", "enter"); break;
-                case 'i' : prueba += message[i].replace("i", "imes"); break;
-                case 'o' : prueba += message[i].replace("o", "ober"); break;
-                case 'u' : prueba += message[i].replace("u", "ufat"); break;
+                case 'a' : prueba += message[i].replace('a', 'ai'); break;
+                case 'e' : prueba += message[i].replace('e', 'enter'); break;
+                case 'i' : prueba += message[i].replace('i', 'imes'); break;
+                case 'o' : prueba += message[i].replace('o', 'ober'); break;
+                case 'u' : prueba += message[i].replace('u', 'ufat'); break;
                 default  : prueba += message[i]; break;
             }     
         }
-        
-        setValueByRef('.textarea-result', prueba);
-        getValueByRef('#btn-copy').disabled = false;
+
+        if(prueba === message)
+        {
+            if(! getValueByRef('#btn-copy').disabled)
+            {
+                getValueByRef('#btn-copy').disabled = true;
+                showConsole("ENTROO")
+            }
+
+            if(prueba === prueba.toUpperCase())
+            {
+                setValueByRef('.textarea-result', '');
+                getValueByRef('.textarea-result').placeholder = "Can't encrypt upper case";                 
+            }
+
+            else if(getValueByRef('.textarea-result').value.length > 0)
+            {
+                setValueByRef('.textarea-result', '');
+                getValueByRef('.textarea-result').placeholder = 'Text is already encrypt!';
+            }
+            else
+            {
+                getValueByRef('.textarea-result').placeholder = 'Text is already encrypt!';
+            }       
+        }
+
+        else
+        {
+            setValueByRef('.textarea-result', prueba);
+            getValueByRef('#btn-copy').disabled = false;
+        }
     }
 }
 
@@ -80,29 +108,56 @@ function decrypt(event)
 
     else
     {
-        showConsole('decrypted');
+        showConsole('decrypted!');
 
         const message = getValueByRef('.textarea-encrypter').value;
 
-        var prueba = "";
+        var prueba = '';
 
-        prueba = message.replaceAll("ai", "a");
-        prueba = prueba.replaceAll("enter", "e");
-        prueba = prueba.replaceAll("imes", "i");
-        prueba = prueba.replaceAll("ober", "o");
-        prueba = prueba.replaceAll("ufat", "u");
+        prueba = message.replaceAll('ai', 'a');
+        prueba = prueba.replaceAll('enter','e');
+        prueba = prueba.replaceAll('imes', 'i');
+        prueba = prueba.replaceAll('ober', 'o');
+        prueba = prueba.replaceAll('ufat', 'u');
 
-        setValueByRef('.textarea-result', prueba);
-        getValueByRef('#btn-copy').disabled = false;           
+        if(prueba === message)
+        { 
+            if(! getValueByRef('#btn-copy').disabled)
+            {
+                getValueByRef('#btn-copy').disabled = true;
+            }
+
+            if(prueba === prueba.toUpperCase())
+            {
+                setValueByRef('.textarea-result', '');
+                getValueByRef('.textarea-result').placeholder = "Can't decrypt upper case";                
+            }
+
+            else if(getValueByRef('.textarea-result').value.length > 0)
+            {
+                setValueByRef('.textarea-result', '');
+                getValueByRef('.textarea-result').placeholder = 'Text is already decrypt!'; 
+            }
+            else
+            {
+                getValueByRef('.textarea-result').placeholder = 'Text is already decrypt!'; 
+            }  
+        }
+
+        else
+        {
+            setValueByRef('.textarea-result', prueba);  
+            getValueByRef('#btn-copy').disabled = false;
+        }          
     }
 }
 
 function copyText()
 {
-    navigator.clipboard.writeText(getValueByRef(".textarea-result").value);
+    navigator.clipboard.writeText(getValueByRef('.textarea-result').value);
 
-    setValueByRef('#msg-copy', "Copied to clipboard!");
-    setTimeout(() => setValueByRef('#msg-copy', "") , 1000);    
+    setValueByRef('#msg-copy', 'Copied to clipboard!');
+    setTimeout(() => setValueByRef('#msg-copy', '') , 1000);    
 }
 
 export { controller }
