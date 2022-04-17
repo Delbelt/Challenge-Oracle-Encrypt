@@ -24,12 +24,13 @@ const controller = () =>
 {
     addEvent('#btn-encrypt', encrypt, 'click');
     addEvent('#btn-decrypt', decrypt, 'click');
+    addEvent('#btn-copy', copyText , 'click');
 
     getValueByRef('.textarea-encrypter').addEventListener('keyup', (event) =>
     {
-        setValueByRef('#txt', event.path[0].value.length)
+        //setValueByRef('#txt', event.path[0].value.length)
         buttonEncrypterDisabled();
-        barProgress(".bar-progress", event.path[0].value.length) 
+        //barProgress(".bar-progress", event.path[0].value.length) 
     })       
 }
 
@@ -64,6 +65,7 @@ function encrypt(event)
         }
         
         setValueByRef('.textarea-result', prueba);
+        getValueByRef('#btn-copy').disabled = false;
     }
 }
 
@@ -91,7 +93,16 @@ function decrypt(event)
         prueba = prueba.replaceAll("ufat", "u");
 
         setValueByRef('.textarea-result', prueba);
+        getValueByRef('#btn-copy').disabled = false;           
     }
+}
+
+function copyText()
+{
+    navigator.clipboard.writeText(getValueByRef(".textarea-result").value);
+
+    setValueByRef('#msg-copy', "Copied to clipboard!");
+    setTimeout(() => setValueByRef('#msg-copy', "") , 1000);    
 }
 
 export { controller }
